@@ -1,8 +1,10 @@
 import keyboard
 import time
 
-TIMER = int(input("Time before each Autosave:"))
-time.sleep(TIMER)
+def COUNTDOWN():
+    TIMER_INT = int(input("Time before each Autosave:"))
+    time.sleep(TIMER_INT)
+    keyboard.press_and_release('ctrl + s')
+    print("Save Successfully!!")
 
-keyboard.press_and_release('ctrl + s')
-print("Save Successfully!!")
+COUNTDOWN()

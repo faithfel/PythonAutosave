@@ -1,18 +1,14 @@
-import dearpygui.dearpygui as dpg
+import customtkinter as CTK
 
-def save_callback():
-    print("Save Clicked")
+app = CTK.CTk()  
+app.geometry("400x240")
+app.title("Installation Test")
 
-dpg.create_context()
-dpg.create_viewport()
-dpg.setup_dearpygui()
+def button_event():
+    print("button pressed")
 
-with dpg.window(label="Example Window"):
-    dpg.add_text("Hello world")
-    dpg.add_button(label="Save", callback=save_callback)
-    dpg.add_input_text(label="string")
-    dpg.add_slider_float(label="float")
+button = CTK.CTkButton(app, text="CTkButton", command=button_event)
 
-dpg.show_viewport()
-dpg.start_dearpygui()
-dpg.destroy_context()
+
+
+app.mainloop()
