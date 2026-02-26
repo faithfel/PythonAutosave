@@ -1,11 +1,18 @@
-import customtkinter as CT
+import dearpygui.dearpygui as dpg
 
-app = CT.CTk()
+def save_callback():
+    print("Save Clicked")
 
+dpg.create_context()
+dpg.create_viewport()
+dpg.setup_dearpygui()
 
-app.geometry("400x150")
-CT.set_appearance_mode("dark")
+with dpg.window(label="Example Window"):
+    dpg.add_text("Hello world")
+    dpg.add_button(label="Save", callback=save_callback)
+    dpg.add_input_text(label="string")
+    dpg.add_slider_float(label="float")
 
-
-
-app.mainloop()
+dpg.show_viewport()
+dpg.start_dearpygui()
+dpg.destroy_context()
