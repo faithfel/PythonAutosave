@@ -9,24 +9,29 @@ app.title("PyAutosave")
 
 
 
-def SLIDER_CALLBACK():
-    TIMER_VAL = entry.get()
-    print(TIMER_VAL)
- 
- 
-def COUNTDOWN(TIMER_VAL):
-    time.sleep(TIMER_VAL)
+def SLIDER_CALLBACK(value):
+    print(value)
+    TIMER_VAL = int(value)
+
+
+
+
+def COUNTDOWN(value):
+    time.sleep(value)
     keyboard.press_and_release('ctrl + s')
     print("Save Successfully!!")
 
 TITLE_HEADER = CTK.CTkLabel(master=app, text="PYTHON AUTOSAVE", font= ("bold",20))
 TITLE_HEADER.pack(pady=20)
 
-entry = CTK.CTkEntry(app, placeholder_text="CTkEntry")
-entry.pack(pady=20, padx=20)
-entry.get
+slider = CTK.CTkSlider(master=app, from_=60, to=600, command=SLIDER_CALLBACK)
+slider.pack(pady=40)
+slider.set(0)
 
-button = CTK.CTkButton(master=app, text="START", command=SLIDER_CALLBACK)
+
+
+
+button = CTK.CTkButton(master=app, text="START", command=COUNTDOWN)
 button.pack(padx=15, pady=10)
 
 app.mainloop()
