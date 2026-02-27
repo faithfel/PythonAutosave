@@ -14,6 +14,9 @@ def COUNTDOWN():
     print("Save Successfully!!")
 
 
+slider = CTK.CTkSlider(master=app, from_=60, to=600, variable=slider_var)
+slider.pack(pady=40)
+
 button = CTK.CTkButton(master=app, text="START", command=COUNTDOWN)
 button.pack(padx=15, pady=10)
 
