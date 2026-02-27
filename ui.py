@@ -7,6 +7,13 @@ app = CTK.CTk()
 app.geometry("400x240")
 app.title("PyAutosave")
 
+def SLIDER_CALLBACK():
+    
+
+
+
+
+
 def COUNTDOWN():
     TIMER_INT = int(input("Time before each Autosave:"))
     time.sleep(TIMER_INT)
@@ -15,8 +22,10 @@ def COUNTDOWN():
 
 TITLE_HEADER = CTK.CTkLabel(master=app, text="PYTHON AUTOSAVE", font= ("bold",20))
 TITLE_HEADER.pack(pady=20)
-slider = CTK.CTkSlider(master=app, from_=60, to=600, )
+
+slider = CTK.CTkSlider(master=app, from_=60, to=600, command=SLIDER_CALLBACK)
 slider.pack(pady=40)
+slider.set(0)
 
 button = CTK.CTkButton(master=app, text="START", command=COUNTDOWN)
 button.pack(padx=15, pady=10)
