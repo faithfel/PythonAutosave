@@ -9,13 +9,13 @@ app.title("PyAutosave")
 
 
 
-def SLIDER_CALLBACK():
-    TIMER_VAL = entry.get()
-    print(TIMER_VAL)
+
+
  
  
 def COUNTDOWN(TIMER_VAL):
-    time.sleep(TIMER_VAL)
+  
+    time.sleep(TIMER)
     keyboard.press_and_release('ctrl + s')
     print("Save Successfully!!")
 
@@ -26,7 +26,10 @@ entry = CTK.CTkEntry(app, placeholder_text="CTkEntry")
 entry.pack(pady=20, padx=20)
 entry.get
 
-button = CTK.CTkButton(master=app, text="START", command=SLIDER_CALLBACK)
+TIMER_VAL = entry.get()
+print(TIMER_VAL)
+
+button = CTK.CTkButton(master=app, text="START", command=COUNTDOWN)
 button.pack(padx=15, pady=10)
 
 app.mainloop()
