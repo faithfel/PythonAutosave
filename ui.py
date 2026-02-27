@@ -13,8 +13,9 @@ def COUNTDOWN():
     keyboard.press_and_release('ctrl + s')
     print("Save Successfully!!")
 
-
-slider = CTK.CTkSlider(master=app, from_=60, to=600, variable=slider_var)
+TITLE_HEADER = CTK.CTkLabel(master=app, text="PYTHON AUTOSAVE", font= ("bold",20))
+TITLE_HEADER.pack(pady=20)
+slider = CTK.CTkSlider(master=app, from_=60, to=600, )
 slider.pack(pady=40)
 
 button = CTK.CTkButton(master=app, text="START", command=COUNTDOWN)
