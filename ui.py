@@ -7,16 +7,17 @@ app = CTK.CTk()
 app.geometry("400x240")
 app.title("PyAutosave")
 
+
+
 def SLIDER_CALLBACK(value):
     print(value)
-    TIMER_INT = int(value)
+    TIMER_VAL = int(value)
 
 
 
 
-
-def COUNTDOWN(TIMER_INT):
-    time.sleep(TIMER_INT)
+def COUNTDOWN(TIMER_VAL):
+    time.sleep(TIMER_VAL)
     keyboard.press_and_release('ctrl + s')
     print("Save Successfully!!")
 
