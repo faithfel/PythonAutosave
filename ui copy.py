@@ -18,11 +18,8 @@ def SLIDER_CALLBACK(value):
 TITLE_HEADER = CTK.CTkLabel(master=app, text="PYTHON AUTOSAVE", font= ("bold",20))
 TITLE_HEADER.pack(pady=20)
 
-slider = CTK.CTkSlider(master=app, from_=60, to=600, command=SLIDER_CALLBACK)
-slider.pack(pady=40)
-slider.set(0)
-
-
+entry = CTK.CTkEntry(app, placeholder_text="CTkEntry")
+entry.pack(pady=20, padx=20)
 
 
 button = CTK.CTkButton(master=app, text="START", )
