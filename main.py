@@ -45,6 +45,21 @@ ENTRY.get
 BUTTON = CTK.CTkButton(master=app, text="START", command=START_TIMER)
 BUTTON.pack(padx=5, pady=10)
 
-terminal = Terminal(app, height=10, background="black", foreground="white", relief="flat")
-terminal.pack(padx=10, pady=10, fill="both", expand=True) 
+
+
+# Create the ScrolledText widget
+# The width and height are measured in characters/lines, not pixels.
+edit_area = TKST.ScrolledText(
+    app,
+    wrap=tkinter.WORD,  # Wraps text at word boundaries
+    width=40,
+    height=15
+)
+# Use pack() or grid() to place the widget in the window.
+edit_area.pack(padx=10, pady=10, fill=tkinter.BOTH, expand=True)
+
+# Insert some initial text
+PLACEHOLDER = "Terminal Output" * 5
+edit_area.insert(tkinter.INSERT, PLACEHOLDER)
+
 app.mainloop()
