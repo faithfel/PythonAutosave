@@ -15,8 +15,8 @@ TITLE_HEADER = CTK.CTkLabel(master=app, text="PYTHON AUTOSAVE", font=("Impact", 
 TITLE_HEADER.pack(pady=15)
     
 
-def START_TIMER():
-    
+def START_TIMER(TOGGLE_STATE):
+
     TIMER_VAL = ENTRY.get()
     mins, secs = divmod(int(TIMER_VAL), 60)
     TIMER_FORMAT = '{:02d}:{:02d}'.format(mins, secs)
@@ -35,9 +35,25 @@ ENTRY = CTK.CTkEntry(app, placeholder_text="CTkEntry")
 ENTRY.pack(pady=5, padx=20)
 ENTRY.get
 
+toggle_var = tkinter.IntVar(value=0)
 
-BUTTON = CTK.CTkButton(master=app, text="START", command=START_TIMER)
-BUTTON.pack(padx=5, pady=10)
+def get_toggle_state():
+    # Retrieve the current value of the toggle_var (1 for ON, 0 for OFF)
+    TOGGLE_STATE = toggle_var.get()
+    print(f"Current state: {TOGGLE_STATE}")
+
+toggle_button = tkinter.Checkbutton(
+    app,
+    text="Toggle Button",
+    variable=toggle_var,
+    indicatoron=False, # Hides the default checkbox indicator
+    width=15,
+    command=get_toggle_state
+)
+
+
+    
+toggle_button.pack(pady=20)
 
 
 

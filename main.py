@@ -69,5 +69,3 @@ sys.stdout.write = REDIRECT(edit_area)
 
 PLACEHOLDER = "Terminal Output" * 1
 edit_area.insert(tkinter.INSERT, PLACEHOLDER)
-
-app.mainloop()
