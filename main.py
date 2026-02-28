@@ -15,9 +15,11 @@ TITLE_HEADER.pack(pady=15)
 
 
 def START_TIMER():
+    
     TIMER_VAL = ENTRY.get()
-    print(TIMER_VAL)
+    print(f" Autosave is set at {TIMER_VAL} per seconds!")
     time.sleep(int(TIMER_VAL))
+    
     keyboard.press_and_release('ctrl + s')
     print("Save Successfully!!")
 
