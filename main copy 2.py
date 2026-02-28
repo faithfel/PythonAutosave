@@ -26,14 +26,15 @@ def get_toggle_state():
     TOGGLE_STATE = toggle_var.get()
     print(f"Current state: {TOGGLE_STATE}")
     TIMER_VAL = ENTRY.get()
-    time.sleep(int(TIMER_VAL))
-    mins, secs = divmod(int(TIMER_VAL), 60)
-    TIMER_FORMAT = '{:02d}:{:02d}'.format(mins, secs)
+    
     
     while TOGGLE_STATE == 1:  
-        
+        time.sleep(int(TIMER_VAL))
+        mins, secs = divmod(int(TIMER_VAL), 60)
+        TIMER_FORMAT = '{:02d}:{:02d}'.format(mins, secs)
         print(f" Autosave is set at {TIMER_FORMAT}!")
-        time.sleep(1)     
+        time.sleep(1)  
+           
     keyboard.press_and_release('ctrl + s')
     print("Save Successfully!!")
 
