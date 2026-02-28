@@ -15,25 +15,25 @@ TITLE_HEADER = CTK.CTkLabel(master=app, text="PYTHON AUTOSAVE", font=("Impact", 
 TITLE_HEADER.pack(pady=15)
 
 
-ENTRY = CTK.CTkEntry(app, placeholder_text="CTkEntry")
+ENTRY = CTK.CTkEntry(app, placeholder_text="Type Time Interval Here")
 ENTRY.pack(pady=5, padx=20)
 ENTRY.get
 
 toggle_var = tkinter.IntVar(value=0)
 
 def get_toggle_state():
-    # Retrieve the current value of the toggle_var (1 for ON, 0 for OFF)
+
     TOGGLE_STATE = toggle_var.get()
     print(f"Current state: {TOGGLE_STATE}")
-    
+    TIMER_VAL = ENTRY.get()
+    time.sleep(int(TIMER_VAL))
+    mins, secs = divmod(int(TIMER_VAL), 60)
+    TIMER_FORMAT = '{:02d}:{:02d}'.format(mins, secs)
     
     while TOGGLE_STATE == 1:  
-        TIMER_VAL = ENTRY.get()
-        mins, secs = divmod(int(TIMER_VAL), 60)
-        TIMER_FORMAT = '{:02d}:{:02d}'.format(mins, secs)
+        
         print(f" Autosave is set at {TIMER_FORMAT}!")
-        time.sleep(1)
-        time.sleep(int(TIMER_VAL))
+        time.sleep(1)     
     keyboard.press_and_release('ctrl + s')
     print("Save Successfully!!")
 
@@ -44,7 +44,7 @@ toggle_button = tkinter.Checkbutton(
     app,
     text="Toggle Button",
     variable=toggle_var,
-    indicatoron=False, # Hides the default checkbox indicator
+    indicatoron=False, 
     width=15,
     command=get_toggle_state
 )
@@ -53,8 +53,22 @@ toggle_button = tkinter.Checkbutton(
     
 toggle_button.pack(pady=20)
 
+class StdoutRedirector:
+    def __init__(self, text_widget):
+        self.text_widget = text_widget
+
+    def write(self, string):
+        self.text_widget.insert(tkinter.END, string)
+        self.text_widget.see(tkinter.END) 
+
+    def flush(self):
+        pass
 
 
+
+text = tkinter.Text(app)
+text.pack()
+sys.stdout = StdoutRedirector(text)
 
 
 
