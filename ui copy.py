@@ -10,8 +10,8 @@ app.title("PyAutosave")
 CTK.set_appearance_mode("Dark")
 CTK.set_default_color_theme("themes/orange.json")
 
-TITLE_HEADER = CTK.CTkLabel(master=app, text="PYTHON AUTOSAVE", font=("Impact", 45))
-TITLE_HEADER.pack(pady=20)
+TITLE_HEADER = CTK.CTkLabel(master=app, text="PYTHON AUTOSAVE", font=("Impact", 40))
+TITLE_HEADER.pack(pady=15)
 
 
 def START_TIMER():
@@ -23,11 +23,11 @@ def START_TIMER():
 
 
 ENTRY = CTK.CTkEntry(app, placeholder_text="CTkEntry")
-ENTRY.pack(pady=20, padx=20)
+ENTRY.pack(pady=5, padx=20)
 ENTRY.get
 
 
 BUTTON = CTK.CTkButton(master=app, text="START", command=START_TIMER)
-BUTTON.pack(padx=15, pady=10)
+BUTTON.pack(padx=5, pady=10)
 
 app.mainloop()
