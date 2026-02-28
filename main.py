@@ -3,7 +3,7 @@ import keyboard
 import time
 import tkinter 
 import tkinter.scrolledtext as TKST
-
+import sys
 
 app = CTK.CTk()  
 app.geometry("400x240")
@@ -47,19 +47,27 @@ BUTTON.pack(padx=5, pady=10)
 
 
 
-# Create the ScrolledText widget
-# The width and height are measured in characters/lines, not pixels.
+
 edit_area = TKST.ScrolledText(
     app,
-    wrap=tkinter.WORD,  # Wraps text at word boundaries
+    wrap=tkinter.WORD,  
     width=40,
-    height=15
+    height=15,
+    bg="black",   
+    fg="white",      
+    font=("courier", 12)
 )
-# Use pack() or grid() to place the widget in the window.
+
 edit_area.pack(padx=10, pady=10, fill=tkinter.BOTH, expand=True)
 
-# Insert some initial text
-PLACEHOLDER = "Terminal Output" * 5
+
+def REDIRECT(object):
+   
+
+
+sys.stdout.write = REDIRECT(edit_area)
+
+PLACEHOLDER = "Terminal Output" * 1
 edit_area.insert(tkinter.INSERT, PLACEHOLDER)
 
 app.mainloop()
