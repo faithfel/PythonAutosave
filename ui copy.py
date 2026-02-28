@@ -7,15 +7,9 @@ app = CTK.CTk()
 app.geometry("400x240")
 app.title("PyAutosave")
 
-
-
-
-
- 
- 
 def COUNTDOWN(TIMER_VAL):
   
-    time.sleep(TIMER)
+    time.sleep(TIMER_VAL)
     keyboard.press_and_release('ctrl + s')
     print("Save Successfully!!")
 
