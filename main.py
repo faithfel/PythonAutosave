@@ -1,6 +1,7 @@
 import customtkinter as CTK
 import keyboard
 import time
+from tkterminal import Terminal
 
 
 
@@ -44,4 +45,6 @@ ENTRY.get
 BUTTON = CTK.CTkButton(master=app, text="START", command=START_TIMER)
 BUTTON.pack(padx=5, pady=10)
 
+terminal = Terminal(app, height=10, background="black", foreground="white", relief="flat")
+terminal.pack(padx=10, pady=10, fill="both", expand=True) 
 app.mainloop()
