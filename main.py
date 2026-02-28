@@ -13,13 +13,25 @@ CTK.set_default_color_theme("themes/orange.json")
 TITLE_HEADER = CTK.CTkLabel(master=app, text="PYTHON AUTOSAVE", font=("Impact", 40))
 TITLE_HEADER.pack(pady=15)
 
+def countdown(time_sec):
+    
+    while time_sec:
+        mins, secs = divmod(time_sec, 60)
+        timeformat = '{:02d}:{:02d}'.format(mins, secs)
+        print(timeformat, end='\r')
+        time.sleep(1)
+        time_sec -= 1
+    
 
 def START_TIMER():
     
     TIMER_VAL = ENTRY.get()
-    print(f" Autosave is set at {TIMER_VAL} per seconds!")
+    mins, secs = divmod(int(TIMER_VAL), 60)
+    TIMER_FORMAT = '{:02d}:{:02d}'.format(mins, secs)
+    print(f" Autosave is set at {TIMER_FORMAT}!")
     time.sleep(int(TIMER_VAL))
-    
+
+
     keyboard.press_and_release('ctrl + s')
     print("Save Successfully!!")
 

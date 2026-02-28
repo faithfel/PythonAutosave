@@ -19,12 +19,7 @@ def START_TIMER():
     TIMER_VAL = ENTRY.get()
     print(f" Autosave is set at {TIMER_VAL} per seconds!")
     time.sleep(int(TIMER_VAL))
-    while COUNTDOWN:
-    mins, secs = divmod(time_sec, 60)
-    timeformat = '{:02d}:{:02d}'.format(mins, secs)
-    print(timeformat, end='\r')
-    time.sleep(1)
-    time_sec -= 1
+
     
     keyboard.press_and_release('ctrl + s')
     print("Save Successfully!!")
