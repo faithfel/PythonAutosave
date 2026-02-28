@@ -13,22 +13,6 @@ CTK.set_default_color_theme("themes/orange.json")
 
 TITLE_HEADER = CTK.CTkLabel(master=app, text="PYTHON AUTOSAVE", font=("Impact", 40))
 TITLE_HEADER.pack(pady=15)
-    
-
-def START_TIMER(TOGGLE_STATE):
-
-    TIMER_VAL = ENTRY.get()
-    mins, secs = divmod(int(TIMER_VAL), 60)
-    TIMER_FORMAT = '{:02d}:{:02d}'.format(mins, secs)
-    print(f" Autosave is set at {TIMER_FORMAT}!")
-    time.sleep(1)
-    time.sleep(int(TIMER_VAL))
-
-
-
-    keyboard.press_and_release('ctrl + s')
-    print("Save Successfully!!")
-
 
 
 ENTRY = CTK.CTkEntry(app, placeholder_text="CTkEntry")
@@ -41,6 +25,20 @@ def get_toggle_state():
     # Retrieve the current value of the toggle_var (1 for ON, 0 for OFF)
     TOGGLE_STATE = toggle_var.get()
     print(f"Current state: {TOGGLE_STATE}")
+    
+    
+    while TOGGLE_STATE == 1:  
+        TIMER_VAL = ENTRY.get()
+        mins, secs = divmod(int(TIMER_VAL), 60)
+        TIMER_FORMAT = '{:02d}:{:02d}'.format(mins, secs)
+        print(f" Autosave is set at {TIMER_FORMAT}!")
+        time.sleep(1)
+        time.sleep(int(TIMER_VAL))
+    keyboard.press_and_release('ctrl + s')
+    print("Save Successfully!!")
+
+
+   
 
 toggle_button = tkinter.Checkbutton(
     app,
