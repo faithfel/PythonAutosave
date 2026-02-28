@@ -10,7 +10,7 @@ app.title("PyAutosave")
 CTK.set_appearance_mode("Dark")
 CTK.set_default_color_theme("themes/orange.json")
 
-TITLE_HEADER = CTK.CTkLabel(master=app, text="PYTHON AUTOSAVE", font= ("bold",20))
+TITLE_HEADER = CTK.CTkLabel(master=app, text="PYTHON AUTOSAVE", font=("Impact", 45))
 TITLE_HEADER.pack(pady=20)
 
 
