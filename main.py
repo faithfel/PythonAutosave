@@ -1,8 +1,8 @@
 import customtkinter as CTK
 import keyboard
 import time
-from tkterminal import Terminal
-
+import tkinter 
+import tkinter.scrolledtext as TKST
 
 
 app = CTK.CTk()  
