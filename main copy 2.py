@@ -21,6 +21,8 @@ ENTRY.get
 
 toggle_var = tkinter.IntVar(value=0)
 
+#fix while loop, its lagging the whole app out
+
 def get_toggle_state():
 
     TOGGLE_STATE = toggle_var.get()
@@ -74,3 +76,5 @@ sys.stdout = StdoutRedirector(text)
 
 
 app.mainloop()
+
+ 
